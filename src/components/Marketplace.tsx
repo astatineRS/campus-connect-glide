@@ -38,7 +38,7 @@ const Marketplace = () => {
                 <div className="text-left">
                   <h3 className="font-semibold mb-1">Noise Cancelling Headphones</h3>
                   <p className="text-sm text-syinq-gray mb-2">Used for 3 months</p>
-                  <p className="font-medium text-syinq-green">$85</p>
+                  <p className="font-medium text-syinq-green">₹ 1499</p>
                 </div>
               </div>
               
