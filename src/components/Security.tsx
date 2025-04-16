@@ -21,7 +21,7 @@ const Security = () => {
             <Shield className="w-12 h-12 lg:w-16 lg:h-16 text-syinq-blue" />
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 relative">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 relative px-0 py-[13px] my-0">
             <SecurityFeature icon={<GraduationCap className="h-8 w-8 text-white" />} title="Verified Campus ID" description="Only users with valid university email and ID can join." position="top-left" />
             
             <SecurityFeature icon={<Car className="h-8 w-8 text-white" />} title="Driving License Check" description="All drivers must verify license and insurance." position="top-right" />
@@ -58,7 +58,7 @@ const SecurityFeature = ({
     'bottom-right': 'md:text-left md:col-start-3 md:row-start-2'
   };
   return <div className={`${positionClasses[position]} relative z-10`}>
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 h-full px-[16px]">
+      <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 h-full px-[16px] mx-0">
         <div className="flex flex-col items-center md:items-start">
           <div className="bg-gradient-to-r from-syinq-blue to-syinq-blue/80 p-3 rounded-xl mb-4">
             {icon}
