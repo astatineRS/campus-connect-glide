@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { Book, Headphones, MessageSquare, Ban } from 'lucide-react';
-
 const Marketplace = () => {
-  return (
-    <section id="marketplace" className="py-20 bg-syinq-lightgray relative overflow-hidden">
+  return <section id="marketplace" className="py-20 bg-syinq-lightgray relative overflow-hidden">
       <div className="absolute -left-20 top-1/3 w-80 h-80 bg-syinq-green/5 rounded-full blur-3xl"></div>
       
       <div className="section-container">
@@ -28,9 +25,9 @@ const Marketplace = () => {
                   <Book className="h-12 w-12 text-syinq-blue" />
                 </div>
                 <div className="text-left">
-                  <h3 className="font-semibold mb-1">Calculus Textbook</h3>
+                  <h3 className="font-semibold mb-1">Scientific Calculator</h3>
                   <p className="text-sm text-syinq-gray mb-2">Like new condition</p>
-                  <p className="font-medium text-syinq-blue">$45</p>
+                  <p className="font-medium text-syinq-blue">₹450</p>
                 </div>
               </div>
               
@@ -46,12 +43,7 @@ const Marketplace = () => {
               </div>
               
               <div className="apple-card relative transform translate-y-6 hover:translate-y-4 transition-transform col-span-2">
-                <div className="absolute right-4 top-4 w-24 h-24 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm flex items-center justify-center">
-                  <div className="text-center">
-                    <MessageSquare className="h-8 w-8 text-syinq-blue mx-auto mb-1" />
-                    <p className="text-xs">Chat with seller</p>
-                  </div>
-                </div>
+                
                 
                 <div className="grid grid-cols-3 gap-4">
                   <div className="aspect-square bg-white rounded-lg shadow-sm flex items-center justify-center">
@@ -119,8 +111,6 @@ const Marketplace = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Marketplace;

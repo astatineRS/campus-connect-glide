@@ -87,8 +87,8 @@ const CarPooling = () => {
                       
                       <div className="bg-gradient-to-r from-syinq-blue/5 to-syinq-green/5 p-4 rounded-xl">
                         <div className="flex justify-between items-center mb-3">
-                          <p className="font-medium">Engineering Building → Library</p>
-                          <span className="text-sm font-medium bg-green-100 text-green-800 px-2 py-1 rounded-full">$3.50</span>
+                          <p className="font-medium">Gaur City → Saket</p>
+                          <span className="text-sm font-medium bg-green-100 text-green-800 px-2 py-1 rounded-full">₹180</span>
                         </div>
                         <div className="flex items-center justify-between text-sm text-syinq-gray">
                           <p>Tuesday, 3:30 PM</p>
@@ -99,7 +99,7 @@ const CarPooling = () => {
                       <div className="bg-gradient-to-r from-syinq-blue/5 to-syinq-green/5 p-4 rounded-xl">
                         <div className="flex justify-between items-center mb-3">
                           <p className="font-medium">University → IGI Airport</p>
-                          <span className="text-sm font-medium bg-green-100 text-green-800 px-2 py-1 rounded-full">$2.75</span>
+                          <span className="text-sm font-medium bg-green-100 text-green-800 px-2 py-1 rounded-full">₹300</span>
                         </div>
                         <div className="flex items-center justify-between text-sm text-syinq-gray">
                           <p>Thursday, 5:15 PM</p>
