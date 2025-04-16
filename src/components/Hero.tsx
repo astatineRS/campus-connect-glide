@@ -196,15 +196,38 @@ const Hero = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-50 via-white to-syinq-blue/5 shadow-lg border border-gray-100">
-            {/* Lottie Animation Container */}
-            <div ref={animationContainer} className="w-full aspect-video"></div>
-            
-            {/* Message Notification */}
-            <div className="absolute bottom-6 right-6 bg-gradient-to-br from-syinq-blue/10 to-syinq-green/20 backdrop-blur-sm border border-white/20 rounded-xl p-3 shadow-lg max-w-[200px] transform transition-all duration-300 hover:scale-105">
-              <p className="text-xs font-medium mb-1">Hey! Need a ride to campus tomorrow?</p>
-              <p className="text-xs text-syinq-blue">Found 3 matches near you 🚗</p>
+          {/* iOS Mobile Frame */}
+          <div className="relative mx-auto max-w-[300px] md:max-w-[380px]">
+            {/* Phone Outer Frame */}
+            <div className="relative rounded-[40px] overflow-hidden bg-[#1A1A1A] p-3 shadow-xl border-[8px] border-[#1A1A1A]">
+              {/* Phone Screen */}
+              <div className="relative rounded-[32px] overflow-hidden bg-white">
+                {/* Status Bar */}
+                <div className="absolute top-0 left-0 right-0 h-6 z-10 flex justify-between px-5 pt-1">
+                  <div className="text-[10px] font-semibold">9:41</div>
+                  <div className="flex space-x-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M18 10c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6 6 2.7 6 6z"/><path d="M18 3v4"/><path d="M18 17v4"/><path d="M10 18l-6 3v-4l6-3"/><path d="M10 6l-6-3v4l6 3"/><path d="m14 18 6 3v-4l-6-3"/><path d="m14 6 6-3v4l-6 3"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M4 18a6 6 0 0 0 6-6V7a6 6 0 0 0-12 0v5a6 6 0 0 0 6 6Z"/><path d="M19 16v2a4 4 0 0 1-4 4h-3a4 4 0 0 1-4-4v-2"/><line x1="12" x2="12" y1="6" y2="2"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M16 4c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H8c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2h8z"/><line x1="12" x2="12" y1="10" y2="16"/><line x1="12" x2="12.01" y1="7" y2="7"/></svg>
+                  </div>
+                </div>
+                
+                {/* Lottie Animation Container */}
+                <div ref={animationContainer} className="w-full pt-6 aspect-[9/18]"></div>
+                
+                {/* Dynamic Island (notch) */}
+                <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-[30%] h-6 bg-black rounded-full"></div>
+                
+                {/* Message Notification */}
+                <div className="absolute bottom-12 right-4 bg-gradient-to-br from-syinq-blue/10 to-syinq-green/20 backdrop-blur-sm border border-white/20 rounded-xl p-3 shadow-lg max-w-[80%] transform transition-all duration-300 hover:scale-105">
+                  <p className="text-xs font-medium mb-1">Hey! Need a ride to campus tomorrow?</p>
+                  <p className="text-xs text-syinq-blue">Found 3 matches near you 🚗</p>
+                </div>
+              </div>
             </div>
+            
+            {/* Bottom Bar Indicator */}
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-[40%] h-1 bg-[#1A1A1A] rounded-full"></div>
           </div>
         </motion.div>
       </div>
