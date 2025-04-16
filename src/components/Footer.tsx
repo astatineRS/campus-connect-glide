@@ -1,6 +1,6 @@
-
 import React from 'react';
-import { Instagram, Twitter, Facebook, Linkedin, Heart } from 'lucide-react';
+import { Instagram, Twitter, Linkedin, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -14,30 +14,41 @@ const Footer = () => {
               designed exclusively for university students.
             </p>
             <div className="flex space-x-4">
-              <SocialLink icon={<Instagram size={18} />} />
-              <SocialLink icon={<Twitter size={18} />} />
-              <SocialLink icon={<Facebook size={18} />} />
-              <SocialLink icon={<Linkedin size={18} />} />
+              <SocialLink 
+                icon={<Instagram size={18} />} 
+                href="https://instagram.com/syinqapp" 
+                aria-label="Instagram"
+              />
+              <SocialLink 
+                icon={<Twitter size={18} />} 
+                href="https://twitter.com/syinqapp" 
+                aria-label="Twitter"
+              />
+              <SocialLink 
+                icon={<Linkedin size={18} />} 
+                href="https://linkedin.com/company/syinq" 
+                aria-label="LinkedIn"
+              />
             </div>
           </div>
           
           <div>
             <h4 className="font-semibold text-syinq-dark mb-4">Platform</h4>
             <ul className="space-y-3">
-              <FooterLink text="Carpooling" />
-              <FooterLink text="Marketplace" />
-              <FooterLink text="Community" />
-              <FooterLink text="Security" />
+              <FooterLink text="Carpooling" href="/#carpooling" />
+              <FooterLink text="Marketplace" href="/marketplace" isRouterLink={true} />
+              <FooterLink text="Community" href="/#community" />
+              <FooterLink text="Security" href="/#security" />
             </ul>
           </div>
           
           <div>
             <h4 className="font-semibold text-syinq-dark mb-4">Company</h4>
             <ul className="space-y-3">
-              <FooterLink text="About Syinq" />
-              <FooterLink text="Contact Us" />
-              <FooterLink text="Terms & Privacy" />
-              <FooterLink text="FAQ" />
+              <FooterLink text="About Syinq" href="/about" isRouterLink={true} />
+              <FooterLink text="Contact Us" href="/contact" isRouterLink={true} />
+              <FooterLink text="Terms & Privacy" href="/terms" isRouterLink={true} />
+              <FooterLink text="FAQ" href="/faq" isRouterLink={true} />
             </ul>
           </div>
         </div>
@@ -56,21 +67,34 @@ const Footer = () => {
   );
 };
 
-const SocialLink = ({ icon }: { icon: React.ReactNode }) => {
+const SocialLink = ({ icon, href, ...props }: { icon: React.ReactNode; href: string; [x: string]: any }) => {
   return (
     <a 
-      href="#" 
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="w-10 h-10 rounded-full bg-syinq-lightgray flex items-center justify-center text-syinq-dark hover:bg-syinq-blue hover:text-white transition-colors"
+      {...props}
     >
       {icon}
     </a>
   );
 };
 
-const FooterLink = ({ text }: { text: string }) => {
+const FooterLink = ({ text, href, isRouterLink = false }: { text: string; href: string; isRouterLink?: boolean }) => {
+  if (isRouterLink) {
+    return (
+      <li>
+        <Link to={href} className="text-syinq-gray hover:text-syinq-blue transition-colors">
+          {text}
+        </Link>
+      </li>
+    );
+  }
+  
   return (
     <li>
-      <a href="#" className="text-syinq-gray hover:text-syinq-blue transition-colors">
+      <a href={href} className="text-syinq-gray hover:text-syinq-blue transition-colors">
         {text}
       </a>
     </li>

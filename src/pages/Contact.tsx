@@ -1,10 +1,9 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Phone, Mail, MapPin, Send, ExternalLink } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, ExternalLink, Home } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { toast } from '@/components/ui/sonner';
@@ -51,6 +50,15 @@ const Contact = () => {
     <div className="min-h-screen bg-white flex flex-col">
       <div className="pt-24 flex-grow">
         <div className="section-container max-w-6xl mx-auto px-6 py-12">
+          <div className="mb-8">
+            <Button asChild variant="outline" className="flex items-center gap-2">
+              <Link to="/">
+                <Home className="h-4 w-4" />
+                <span>Back to Home</span>
+              </Link>
+            </Button>
+          </div>
+          
           <div className="text-center mb-12">
             <div className="inline-block bg-syinq-blue/10 p-3 rounded-2xl mb-4">
               <Phone className="h-6 w-6 text-syinq-blue" />

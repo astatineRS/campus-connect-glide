@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown, Zap, Shield, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -197,12 +196,12 @@ const Hero = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="relative rounded-2xl overflow-hidden bg-white shadow-md">
+          <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-50 via-white to-syinq-blue/5 shadow-lg border border-gray-100">
             {/* Lottie Animation Container */}
             <div ref={animationContainer} className="w-full aspect-video"></div>
             
             {/* Message Notification */}
-            <div className="absolute bottom-6 right-6 bg-white rounded-xl p-3 shadow-lg max-w-[200px] transform transition-all duration-300 hover:scale-105">
+            <div className="absolute bottom-6 right-6 bg-gradient-to-br from-syinq-blue/10 to-syinq-green/20 backdrop-blur-sm border border-white/20 rounded-xl p-3 shadow-lg max-w-[200px] transform transition-all duration-300 hover:scale-105">
               <p className="text-xs font-medium mb-1">Hey! Need a ride to campus tomorrow?</p>
               <p className="text-xs text-syinq-blue">Found 3 matches near you 🚗</p>
             </div>
