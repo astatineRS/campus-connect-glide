@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { Shield, GraduationCap, Car, Building, Lock } from 'lucide-react';
-
 const Security = () => {
-  return (
-    <section id="security" className="py-20 bg-syinq-lightgray relative overflow-hidden">
+  return <section id="security" className="py-20 bg-syinq-lightgray relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/50 rounded-full blur-3xl"></div>
       
       <div className="section-container">
@@ -25,64 +22,42 @@ const Security = () => {
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 relative">
-            <SecurityFeature 
-              icon={<GraduationCap className="h-8 w-8 text-white" />}
-              title="Verified Campus ID"
-              description="Only users with valid university email and ID can join."
-              position="top-left"
-            />
+            <SecurityFeature icon={<GraduationCap className="h-8 w-8 text-white" />} title="Verified Campus ID" description="Only users with valid university email and ID can join." position="top-left" />
             
-            <SecurityFeature 
-              icon={<Car className="h-8 w-8 text-white" />}
-              title="Driving License Check"
-              description="All drivers must verify license and insurance."
-              position="top-right"
-            />
+            <SecurityFeature icon={<Car className="h-8 w-8 text-white" />} title="Driving License Check" description="All drivers must verify license and insurance." position="top-right" />
             
-            <SecurityFeature 
-              icon={<Building className="h-8 w-8 text-white" />}
-              title="Organization Validation"
-              description="Student clubs and businesses are verified by the university."
-              position="bottom-left"
-            />
+            <SecurityFeature icon={<Building className="h-8 w-8 text-white" />} title="Organization Validation" description="Student clubs and businesses are verified by the university." position="bottom-left" />
             
-            <SecurityFeature 
-              icon={<Lock className="h-8 w-8 text-white" />}
-              title="Encrypted Chats"
-              description="All communication is end-to-end encrypted for privacy."
-              position="bottom-right"
-            />
+            <SecurityFeature icon={<Lock className="h-8 w-8 text-white" />} title="Encrypted Chats" description="All communication is end-to-end encrypted for privacy." position="bottom-right" />
           </div>
         </div>
         
         <div className="mt-16 text-center reveal-on-scroll">
-          <p className="mb-4 text-lg font-medium">Your safety is our top priority</p>
-          <button className="apple-button-secondary">
-            Learn More About Security
-          </button>
+          <p className="mb-4 text-gray-900 text-center font-bold text-2xl">Your safety is our top priority</p>
+          
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 interface SecurityFeatureProps {
   icon: React.ReactNode;
   title: string;
   description: string;
   position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 }
-
-const SecurityFeature = ({ icon, title, description, position }: SecurityFeatureProps) => {
+const SecurityFeature = ({
+  icon,
+  title,
+  description,
+  position
+}: SecurityFeatureProps) => {
   const positionClasses = {
     'top-left': 'md:text-right',
     'top-right': 'md:text-left md:col-start-3',
     'bottom-left': 'md:text-right md:row-start-2',
-    'bottom-right': 'md:text-left md:col-start-3 md:row-start-2',
+    'bottom-right': 'md:text-left md:col-start-3 md:row-start-2'
   };
-  
-  return (
-    <div className={`${positionClasses[position]} relative z-10`}>
+  return <div className={`${positionClasses[position]} relative z-10`}>
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 h-full">
         <div className="flex flex-col items-center md:items-start">
           <div className="bg-gradient-to-r from-syinq-blue to-syinq-blue/80 p-3 rounded-xl mb-4">
@@ -92,8 +67,6 @@ const SecurityFeature = ({ icon, title, description, position }: SecurityFeature
           <p className="text-syinq-gray text-sm">{description}</p>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Security;
