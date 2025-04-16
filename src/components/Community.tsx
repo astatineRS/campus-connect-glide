@@ -1,7 +1,108 @@
 
 import React from 'react';
-import { Users, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+
+// Mock forum posts data
+export const forumPosts = [
+  {
+    id: 1,
+    title: "Lost my Student ID",
+    author: "Alex Chen",
+    avatar: "AC",
+    time: "2 hours ago",
+    replies: 8,
+    color: "blue",
+    tag: "Help",
+    featured: false
+  },
+  {
+    id: 2,
+    title: "Fresher's Party Updates 🎉",
+    author: "Mia Johnson",
+    avatar: "MJ",
+    time: "Yesterday",
+    replies: 24,
+    color: "green",
+    tag: "Event",
+    featured: true
+  },
+  {
+    id: 3,
+    title: "Need a roommate urgently",
+    author: "James Smith",
+    avatar: "JS",
+    time: "3 days ago",
+    replies: 15,
+    color: "gray",
+    tag: "Housing",
+    featured: false
+  },
+  {
+    id: 4,
+    title: "Study group for finals",
+    author: "Emma Wilson",
+    avatar: "EW",
+    time: "1 week ago",
+    replies: 32,
+    color: "blue",
+    tag: "Academic",
+    featured: false
+  },
+  {
+    id: 5,
+    title: "Campus Coffee Meetup",
+    author: "David Park",
+    avatar: "DP",
+    time: "5 hours ago",
+    replies: 12,
+    color: "green",
+    tag: "Social",
+    featured: false
+  },
+  {
+    id: 6,
+    title: "Lost Keys on Campus",
+    author: "Sarah Lee",
+    avatar: "SL",
+    time: "1 day ago",
+    replies: 7,
+    color: "blue",
+    tag: "Help",
+    featured: false
+  },
+  {
+    id: 7,
+    title: "Basketball Tournament Signup",
+    author: "Michael Brown",
+    avatar: "MB",
+    time: "2 days ago",
+    replies: 45,
+    color: "green",
+    tag: "Event",
+    featured: true
+  },
+  {
+    id: 8,
+    title: "Selling Textbooks (Like New)",
+    author: "Olivia Garcia",
+    avatar: "OG",
+    time: "6 days ago",
+    replies: 19,
+    color: "gray",
+    tag: "Marketplace",
+    featured: false
+  },
+];
 
 const Community = () => {
   return (
@@ -23,64 +124,33 @@ const Community = () => {
         </div>
         
         <div className="max-w-4xl mx-auto reveal-on-scroll">
-          <div className="relative">
-            <div className="flex justify-center mb-8">
-              <button className="p-2 bg-white rounded-full shadow-sm mr-4 hover:bg-syinq-lightgray transition-colors">
-                <ChevronLeft className="h-5 w-5 text-syinq-dark" />
-              </button>
-              <button className="p-2 bg-white rounded-full shadow-sm hover:bg-syinq-lightgray transition-colors">
-                <ChevronRight className="h-5 w-5 text-syinq-dark" />
-              </button>
+          <Carousel className="w-full max-w-4xl mx-auto">
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {forumPosts.slice(0, 5).map((post) => (
+                <CarouselItem key={post.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                  <ForumCard 
+                    title={post.title}
+                    author={post.author}
+                    avatar={post.avatar}
+                    time={post.time}
+                    replies={post.replies}
+                    color={post.color as 'blue' | 'green' | 'gray'}
+                    tag={post.tag}
+                    featured={post.featured}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="hidden sm:flex justify-end space-x-2 absolute -top-12 right-0">
+              <CarouselPrevious className="relative right-0 left-0 top-0 translate-y-0 h-9 w-9" />
+              <CarouselNext className="relative right-0 left-0 top-0 translate-y-0 h-9 w-9" />
             </div>
-            
-            <div className="flex space-x-6 overflow-x-auto pb-8 snap-x">
-              <ForumCard 
-                title="Lost my Student ID"
-                author="Alex Chen"
-                avatar="AC"
-                time="2 hours ago"
-                replies={8}
-                color="blue"
-                tag="Help"
-              />
-              
-              <ForumCard 
-                title="Fresher's Party Updates 🎉"
-                author="Mia Johnson"
-                avatar="MJ"
-                time="Yesterday"
-                replies={24}
-                color="green"
-                tag="Event"
-                featured={true}
-              />
-              
-              <ForumCard 
-                title="Need a roommate urgently"
-                author="James Smith"
-                avatar="JS"
-                time="3 days ago"
-                replies={15}
-                color="gray"
-                tag="Housing"
-              />
-              
-              <ForumCard 
-                title="Study group for finals"
-                author="Emma Wilson"
-                avatar="EW"
-                time="1 week ago"
-                replies={32}
-                color="blue"
-                tag="Academic"
-              />
-            </div>
-          </div>
+          </Carousel>
           
           <div className="mt-12 text-center">
-            <button className="apple-button-secondary">
-              View All Posts
-            </button>
+            <Button asChild className="apple-button-secondary">
+              <Link to="/forum">View All Posts</Link>
+            </Button>
           </div>
         </div>
       </div>
@@ -99,7 +169,7 @@ interface ForumCardProps {
   featured?: boolean;
 }
 
-const ForumCard = ({ title, author, avatar, time, replies, color, tag, featured = false }: ForumCardProps) => {
+export const ForumCard = ({ title, author, avatar, time, replies, color, tag, featured = false }: ForumCardProps) => {
   const colorClasses = {
     blue: {
       bg: 'bg-syinq-blue',
@@ -121,7 +191,7 @@ const ForumCard = ({ title, author, avatar, time, replies, color, tag, featured 
   return (
     <div 
       className={cn(
-        "min-w-[280px] max-w-[280px] snap-start",
+        "min-w-[280px] h-full",
         "bg-white rounded-2xl shadow-sm border border-gray-100",
         "transition-all duration-300 hover:shadow-md hover:-translate-y-1",
         featured && "ring-2 ring-syinq-blue/20"
