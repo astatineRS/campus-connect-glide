@@ -2,6 +2,8 @@
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown, Zap, Shield, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
+// Import lottie without type checking
+// @ts-ignore
 import lottie from 'lottie-web';
 import { motion } from 'framer-motion';
 
