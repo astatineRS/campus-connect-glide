@@ -1,7 +1,7 @@
 import React from 'react';
 import { Shield, GraduationCap, Car, Building, Lock } from 'lucide-react';
 const Security = () => {
-  return <section id="security" className="py-20 bg-syinq-lightgray relative overflow-hidden">
+  return <section id="security" className="bg-syinq-lightgray relative overflow-hidden py-0">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/50 rounded-full blur-3xl"></div>
       
       <div className="section-container">
@@ -58,13 +58,13 @@ const SecurityFeature = ({
     'bottom-right': 'md:text-left md:col-start-3 md:row-start-2'
   };
   return <div className={`${positionClasses[position]} relative z-10`}>
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 h-full">
+      <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 h-full px-[16px]">
         <div className="flex flex-col items-center md:items-start">
           <div className="bg-gradient-to-r from-syinq-blue to-syinq-blue/80 p-3 rounded-xl mb-4">
             {icon}
           </div>
-          <h3 className="font-semibold text-lg mb-2">{title}</h3>
-          <p className="text-syinq-gray text-sm">{description}</p>
+          <h3 className="font-semibold text-lg mb-2 text-left">{title}</h3>
+          <p className="text-syinq-gray text-sm text-left">{description}</p>
         </div>
       </div>
     </div>;
