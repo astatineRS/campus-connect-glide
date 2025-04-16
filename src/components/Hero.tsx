@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { ChevronDown, Zap, Shield, Users } from 'lucide-react';
+import { ChevronDown, Zap, Shield, Users, Check, MapPin, Clock, Car } from 'lucide-react';
 import { cn } from '@/lib/utils';
-// Import lottie without type checking
-// @ts-ignore
-import lottie from 'lottie-web';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
@@ -11,53 +8,6 @@ const Hero = () => {
     const element = document.getElementById('carpooling');
     element?.scrollIntoView({ behavior: 'smooth' });
   };
-
-  const animationContainer = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    let anim: any;
-    if (animationContainer.current) {
-      // Import the animation data
-      import('@/assets/campus-animation.json').then((animationData) => {
-        anim = lottie.loadAnimation({
-          container: animationContainer.current!,
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
-          animationData: animationData.default
-        });
-      }).catch(err => {
-        console.error("Failed to load animation data:", err);
-        // Fallback if animation fails to load
-        if (animationContainer.current) {
-          animationContainer.current.innerHTML = `
-            <div class="flex items-center justify-center h-full">
-              <div class="bg-syinq-lightgray rounded-xl p-8 relative overflow-hidden">
-                <div class="absolute -right-10 -top-10 w-40 h-40 bg-syinq-blue/10 rounded-full"></div>
-                <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-syinq-green/10 rounded-full"></div>
-                <div class="relative z-10 flex flex-col items-center">
-                  <div class="text-3xl font-bold mb-2">Syinq</div>
-                  <div class="text-sm text-syinq-gray mb-4">Campus Life Simplified</div>
-                  <div class="bg-white p-3 rounded-lg shadow-sm w-56 mb-3">
-                    <div class="text-xs text-left">
-                      <div class="font-semibold mb-1">Hey! Need a ride to campus tomorrow?</div>
-                      <div class="text-syinq-blue">Found 3 matches near you 🚗</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `;
-        }
-      });
-    }
-
-    return () => {
-      if (anim) {
-        anim.destroy();
-      }
-    };
-  }, []);
 
   // Staggered delay variants for animations
   const containerVariants = {
@@ -91,6 +41,24 @@ const Hero = () => {
         type: 'spring',
         stiffness: 100
       }
+    }
+  };
+
+  const floatAnimation = {
+    y: [-10, 0, -10],
+    transition: {
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  };
+
+  const pulseAnimation = {
+    scale: [1, 1.05, 1],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut"
     }
   };
 
@@ -189,45 +157,132 @@ const Hero = () => {
           </motion.button>
         </motion.div>
         
-        {/* Right Animation Column */}
+        {/* Right Vector Illustration Column */}
         <motion.div 
           className="w-full md:w-1/2"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          {/* iOS Mobile Frame */}
-          <div className="relative mx-auto max-w-[300px] md:max-w-[380px]">
-            {/* Phone Outer Frame */}
-            <div className="relative rounded-[40px] overflow-hidden bg-[#1A1A1A] p-3 shadow-xl border-[8px] border-[#1A1A1A]">
-              {/* Phone Screen */}
-              <div className="relative rounded-[32px] overflow-hidden bg-white">
-                {/* Status Bar */}
-                <div className="absolute top-0 left-0 right-0 h-6 z-10 flex justify-between px-5 pt-1">
-                  <div className="text-[10px] font-semibold">9:41</div>
-                  <div className="flex space-x-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M18 10c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6 6 2.7 6 6z"/><path d="M18 3v4"/><path d="M18 17v4"/><path d="M10 18l-6 3v-4l6-3"/><path d="M10 6l-6-3v4l6 3"/><path d="m14 18 6 3v-4l-6-3"/><path d="m14 6 6-3v4l-6 3"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M4 18a6 6 0 0 0 6-6V7a6 6 0 0 0-12 0v5a6 6 0 0 0 6 6Z"/><path d="M19 16v2a4 4 0 0 1-4 4h-3a4 4 0 0 1-4-4v-2"/><line x1="12" x2="12" y1="6" y2="2"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M16 4c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H8c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2h8z"/><line x1="12" x2="12" y1="10" y2="16"/><line x1="12" x2="12.01" y1="7" y2="7"/></svg>
-                  </div>
-                </div>
+          {/* Campus Scene with Vector Illustrations */}
+          <div className="relative h-[400px] w-full">
+            {/* Background University Building */}
+            <motion.div 
+              className="absolute w-full top-0 left-0 right-0 h-64"
+              animate={floatAnimation}
+            >
+              <svg className="w-full h-full" viewBox="0 0 800 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="150" y="100" width="500" height="200" rx="8" fill="#F3F4F6" />
+                <rect x="200" y="50" width="400" height="250" rx="8" fill="#E5E7EB" />
+                <rect x="250" y="150" width="300" height="150" rx="4" fill="#F9FAFB" />
+                <rect x="300" y="20" width="200" height="230" rx="8" fill="#D1D5DB" />
+                <rect x="340" y="8" width="120" height="60" rx="8" fill="#9CA3AF" />
+                <rect x="370" y="0" width="60" height="20" rx="4" fill="#6B7280" />
                 
-                {/* Lottie Animation Container */}
-                <div ref={animationContainer} className="w-full pt-6 aspect-[9/18]"></div>
+                {/* Windows */}
+                <rect x="320" y="60" width="40" height="40" rx="2" fill="#60A5FA" fillOpacity="0.3" />
+                <rect x="320" y="110" width="40" height="40" rx="2" fill="#60A5FA" fillOpacity="0.3" />
+                <rect x="320" y="160" width="40" height="40" rx="2" fill="#60A5FA" fillOpacity="0.3" />
+                <rect x="440" y="60" width="40" height="40" rx="2" fill="#60A5FA" fillOpacity="0.3" />
+                <rect x="440" y="110" width="40" height="40" rx="2" fill="#60A5FA" fillOpacity="0.3" />
+                <rect x="440" y="160" width="40" height="40" rx="2" fill="#60A5FA" fillOpacity="0.3" />
                 
-                {/* Dynamic Island (notch) */}
-                <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-[30%] h-6 bg-black rounded-full"></div>
-                
-                {/* Message Notification */}
-                <div className="absolute bottom-12 right-4 bg-gradient-to-br from-syinq-blue/10 to-syinq-green/20 backdrop-blur-sm border border-white/20 rounded-xl p-3 shadow-lg max-w-[80%] transform transition-all duration-300 hover:scale-105">
-                  <p className="text-xs font-medium mb-1">Hey! Need a ride to campus tomorrow?</p>
-                  <p className="text-xs text-syinq-blue">Found 3 matches near you 🚗</p>
-                </div>
-              </div>
-            </div>
+                {/* Door */}
+                <rect x="380" y="170" width="40" height="80" rx="4" fill="#4B5563" />
+              </svg>
+            </motion.div>
             
-            {/* Bottom Bar Indicator */}
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-[40%] h-1 bg-[#1A1A1A] rounded-full"></div>
+            {/* Student with Phone */}
+            <motion.div 
+              className="absolute bottom-10 left-10 w-48 h-48"
+              animate={pulseAnimation}
+            >
+              <svg className="w-full h-full" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="60" r="25" fill="#E5E7EB" />
+                <rect x="85" y="85" width="30" height="60" rx="4" fill="#D1D5DB" />
+                <rect x="75" y="95" width="50" height="70" rx="4" fill="#9CA3AF" />
+                <rect x="90" y="30" width="20" height="20" rx="10" fill="#6B7280" />
+                
+                {/* Phone in hand */}
+                <rect x="115" y="95" width="25" height="40" rx="4" fill="#111827" />
+                <rect x="118" y="100" width="19" height="30" rx="2" fill="#60A5FA" />
+              </svg>
+            </motion.div>
+            
+            {/* Car Icon */}
+            <motion.div 
+              className="absolute bottom-20 right-20 w-40 h-40"
+              animate={{
+                x: [-60, 0],
+                transition: {
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut"
+                }
+              }}
+            >
+              <svg className="w-full h-full" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="20" y="80" width="120" height="30" rx="10" fill="#3B82F6" />
+                <rect x="30" y="65" width="100" height="25" rx="8" fill="#60A5FA" />
+                <circle cx="45" cy="110" r="15" fill="#1F2937" />
+                <circle cx="45" cy="110" r="8" fill="#6B7280" />
+                <circle cx="115" cy="110" r="15" fill="#1F2937" />
+                <circle cx="115" cy="110" r="8" fill="#6B7280" />
+                <rect x="40" y="70" width="20" height="15" rx="4" fill="#BFDBFE" />
+                <rect x="100" y="70" width="20" height="15" rx="4" fill="#BFDBFE" />
+              </svg>
+            </motion.div>
+            
+            {/* Booking UI Card */}
+            <motion.div 
+              className="absolute top-10 right-0 bg-white p-4 rounded-lg shadow-lg w-52"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+            >
+              <h3 className="text-sm font-semibold mb-2">Book Campus Ride</h3>
+              <div className="flex items-center mb-2 text-xs">
+                <MapPin className="h-3 w-3 text-syinq-blue mr-1" />
+                <span>North Campus</span>
+              </div>
+              <div className="flex items-center mb-3 text-xs">
+                <Clock className="h-3 w-3 text-syinq-blue mr-1" />
+                <span>Leaving in 10 mins</span>
+              </div>
+              <motion.div 
+                className="bg-syinq-blue text-white text-xs px-3 py-1.5 rounded-md flex items-center justify-center"
+                whileHover={{ scale: 1.05 }}
+              >
+                <Car className="h-3 w-3 mr-1" />
+                <span>Find Ride</span>
+              </motion.div>
+            </motion.div>
+            
+            {/* Message Notification */}
+            <motion.div 
+              className="absolute bottom-6 right-6 bg-gradient-to-br from-syinq-blue/10 to-syinq-green/20 backdrop-blur-sm border border-white/20 rounded-xl p-3 shadow-lg max-w-[200px]"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1.2, duration: 0.5 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <p className="text-xs font-medium mb-1">Hey! Need a ride to campus tomorrow?</p>
+              <p className="text-xs text-syinq-blue">Found 3 matches near you 🚗</p>
+            </motion.div>
+            
+            {/* Confirmation Check */}
+            <motion.div 
+              className="absolute top-32 left-36 bg-green-500 text-white p-1 rounded-full"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ 
+                opacity: 1, 
+                scale: [0, 1.2, 1],
+                transition: { delay: 1.5, duration: 0.5 }
+              }}
+            >
+              <Check className="h-4 w-4" />
+            </motion.div>
           </div>
         </motion.div>
       </div>
