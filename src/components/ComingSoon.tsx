@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { AppWindow, Loader } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ComingSoon = () => {
   return (
@@ -57,9 +58,9 @@ const ComingSoon = () => {
           <p className="text-syinq-gray">Launching soon for all verified campus users.</p>
           
           <div className="mt-10">
-            <button className="apple-button">
+            <Link to="/waitlist" className="apple-button">
               Join Waitlist
-            </button>
+            </Link>
           </div>
         </div>
       </div>

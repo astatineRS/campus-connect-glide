@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,7 +34,13 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <div className="flex items-center">
-          <span className="text-2xl font-bold text-syinq-dark">Syinq</span>
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/lovable-uploads/f46e85cb-2621-4539-948c-7fa0b22b88f7.png" 
+              alt="Syinq Logo" 
+              className="h-10" 
+            />
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
@@ -42,7 +49,12 @@ const Navbar = () => {
           <a href="#marketplace" className="text-syinq-dark hover:text-syinq-blue transition-colors">Marketplace</a>
           <a href="#community" className="text-syinq-dark hover:text-syinq-blue transition-colors">Community</a>
           <a href="#security" className="text-syinq-dark hover:text-syinq-blue transition-colors">Security</a>
-          <Button className="bg-syinq-blue hover:bg-syinq-blue/90">Join Waitlist</Button>
+          <Button asChild className="bg-syinq-blue hover:bg-syinq-blue/90">
+            <Link to="/waitlist">Join Waitlist</Link>
+          </Button>
+          <Button asChild variant="outline" className="border-syinq-blue text-syinq-blue hover:bg-syinq-blue/10">
+            <Link to="/contact">Contact Us</Link>
+          </Button>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -86,9 +98,20 @@ const Navbar = () => {
             >
               Security
             </a>
-            <Button className="bg-syinq-blue hover:bg-syinq-blue/90 w-full justify-center">
+            <Link 
+              to="/waitlist"
+              className="bg-syinq-blue text-white py-2 px-4 rounded hover:bg-syinq-blue/90 transition-colors text-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Join Waitlist
-            </Button>
+            </Link>
+            <Link 
+              to="/contact"
+              className="border border-syinq-blue text-syinq-blue py-2 px-4 rounded hover:bg-syinq-blue/10 transition-colors text-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact Us
+            </Link>
           </nav>
         </div>
       )}

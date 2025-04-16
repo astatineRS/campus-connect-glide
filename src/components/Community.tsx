@@ -12,13 +12,13 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 
-// Mock forum posts data
+// Mock forum posts data with Indian names
 export const forumPosts = [
   {
     id: 1,
     title: "Lost my Student ID",
-    author: "Alex Chen",
-    avatar: "AC",
+    author: "Arjun Sharma",
+    avatar: "AS",
     time: "2 hours ago",
     replies: 8,
     color: "blue",
@@ -28,8 +28,8 @@ export const forumPosts = [
   {
     id: 2,
     title: "Fresher's Party Updates 🎉",
-    author: "Mia Johnson",
-    avatar: "MJ",
+    author: "Priya Patel",
+    avatar: "PP",
     time: "Yesterday",
     replies: 24,
     color: "green",
@@ -39,8 +39,8 @@ export const forumPosts = [
   {
     id: 3,
     title: "Need a roommate urgently",
-    author: "James Smith",
-    avatar: "JS",
+    author: "Vikram Singh",
+    avatar: "VS",
     time: "3 days ago",
     replies: 15,
     color: "gray",
@@ -50,8 +50,8 @@ export const forumPosts = [
   {
     id: 4,
     title: "Study group for finals",
-    author: "Emma Wilson",
-    avatar: "EW",
+    author: "Ananya Gupta",
+    avatar: "AG",
     time: "1 week ago",
     replies: 32,
     color: "blue",
@@ -61,8 +61,8 @@ export const forumPosts = [
   {
     id: 5,
     title: "Campus Coffee Meetup",
-    author: "David Park",
-    avatar: "DP",
+    author: "Rahul Verma",
+    avatar: "RV",
     time: "5 hours ago",
     replies: 12,
     color: "green",
@@ -72,8 +72,8 @@ export const forumPosts = [
   {
     id: 6,
     title: "Lost Keys on Campus",
-    author: "Sarah Lee",
-    avatar: "SL",
+    author: "Neha Kapoor",
+    avatar: "NK",
     time: "1 day ago",
     replies: 7,
     color: "blue",
@@ -83,8 +83,8 @@ export const forumPosts = [
   {
     id: 7,
     title: "Basketball Tournament Signup",
-    author: "Michael Brown",
-    avatar: "MB",
+    author: "Rohan Joshi",
+    avatar: "RJ",
     time: "2 days ago",
     replies: 45,
     color: "green",
@@ -94,8 +94,8 @@ export const forumPosts = [
   {
     id: 8,
     title: "Selling Textbooks (Like New)",
-    author: "Olivia Garcia",
-    avatar: "OG",
+    author: "Meera Iyer",
+    avatar: "MI",
     time: "6 days ago",
     replies: 19,
     color: "gray",
