@@ -41,7 +41,7 @@ const Security = () => {
             <SecurityFeature 
               icon={<Building className="h-8 w-8 text-white" />} 
               title="Organization Validation" 
-              description="Student clubs and businesses are verified by the university." 
+              description="Users are verified by the university." 
               position="bottom-left" 
             />
             

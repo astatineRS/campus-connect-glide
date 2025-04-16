@@ -80,10 +80,10 @@ const Contact = () => {
               <h3 className="text-lg font-semibold mb-2">Email Us</h3>
               <p className="text-syinq-gray mb-4">For general inquiries and support</p>
               <a 
-                href="mailto:hello@syinq.com" 
+                href="mailto:getyousync@gmail.com" 
                 className="text-syinq-blue hover:underline inline-flex items-center"
               >
-                hello@syinq.com
+                getyousync@gmail.com
                 <ExternalLink className="ml-1 h-4 w-4" />
               </a>
             </div>
@@ -98,7 +98,7 @@ const Contact = () => {
                 href="tel:+919876543210" 
                 className="text-syinq-blue hover:underline inline-flex items-center"
               >
-                +91 98765 43210
+                +91 6284376052
                 <ExternalLink className="ml-1 h-4 w-4" />
               </a>
             </div>
@@ -108,9 +108,9 @@ const Contact = () => {
                 <MapPin className="h-6 w-6 text-syinq-blue" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Visit Us</h3>
-              <p className="text-syinq-gray mb-4">Our headquarters in Bangalore</p>
+              <p className="text-syinq-gray mb-4">Our headquarters in Noida</p>
               <a 
-                href="https://maps.google.com" 
+                href="https://maps.app.goo.gl/1mzH44ku5TJx2cro6" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-syinq-blue hover:underline inline-flex items-center"

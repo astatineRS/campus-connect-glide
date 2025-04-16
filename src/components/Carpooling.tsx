@@ -47,7 +47,7 @@ const CarPooling = () => {
                   <CheckCircle className="h-6 w-6 text-syinq-blue" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-1">Verified Drivers Only</h3>
+                  <h3 className="font-semibold text-lg mb-1">Verified Users Only</h3>
                   <p className="text-syinq-gray">Travel with confidence knowing all drivers are vetted and verified.</p>
                 </div>
               </div>

@@ -16,17 +16,17 @@ const Footer = () => {
             <div className="flex space-x-4">
               <SocialLink 
                 icon={<Instagram size={18} />} 
-                href="https://instagram.com/syinqapp" 
+                href="https://www.instagram.com/_syinq_?igsh=MXJrN3B3bnZ3eXBnbA==" 
                 aria-label="Instagram"
               />
               <SocialLink 
                 icon={<Twitter size={18} />} 
-                href="https://twitter.com/syinqapp" 
+                href="https://x.com/getyou_synced" 
                 aria-label="Twitter"
               />
               <SocialLink 
                 icon={<Linkedin size={18} />} 
-                href="https://linkedin.com/company/syinq" 
+                href="https://www.linkedin.com/company/rasync" 
                 aria-label="LinkedIn"
               />
             </div>
